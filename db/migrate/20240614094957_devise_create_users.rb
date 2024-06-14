@@ -35,8 +35,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
 
       t.string :provider
       t.string :uid
-      t.string :first_name
-      t.string :last_name
+      t.string :name
+      t.string :image
       t.string :github_token
 
 

@@ -19,8 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_14_094957) do
     t.datetime "remember_created_at"
     t.string "provider"
     t.string "uid"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
+    t.string "image"
     t.string "github_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

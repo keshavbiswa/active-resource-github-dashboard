@@ -10,6 +10,23 @@
         <p class="text-sm text-gray-600"><%= Current.user.email %></p>
       </div>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <p><strong>Username:</strong> <%= @github_user.login %></p>
+        <p><strong>Company:</strong> <%= @github_user.company %></p>
+        <p><strong>Location:</strong> <%= @github_user.location %></p>
+        <p><strong>Blog:</strong> <a href="https://<%= @github_user.blog %>" target="_blank" class="text-blue-500 hover:underline"><%= @github_user.blog %></a></p>
+        <p><strong>Bio:</strong> <%= @github_user.bio %></p>
+      </div>
+      <div>
+        <p><strong>Twitter:</strong> <%= @github_user.twitter_username %></p>
+        <p><strong>Followers:</strong> <%= @github_user.followers %></p>
+        <p><strong>Following:</strong> <%= @github_user.following %></p>
+        <p><strong>Public Repos:</strong> <%= @github_user.public_repos %></p>
+        <p><strong>Member Since:</strong> <%= @github_user&.created_at&.to_date&.to_fs(:long) %></p>
+        <p><strong>Last Updated:</strong> <%= @github_user&.updated_at&.to_date&.to_fs(:long) %></p>
+      </div>
+    </div>
   </div>
 
   <h2 class="font-semibold text-2xl">Your Organizations</h2>

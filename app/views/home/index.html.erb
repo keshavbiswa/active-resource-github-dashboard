@@ -1,6 +1,7 @@
 <div class="max-w-6xl mx-auto px-4 py-8">
   <h1 class="font-bold text-4xl mb-6">GitHub Dashboard</h1>
   
+  <%= @user_organizations %>
   <div class="mb-8 p-4 border rounded-lg shadow-md">
     <h2 class="font-semibold text-2xl">Your Profile</h2>
     <div class="mt-4 flex items-center space-x-4">
@@ -31,7 +32,7 @@
 
   <h2 class="font-semibold text-2xl">Your Organizations</h2>
   <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    <% @organizations.each do |organization| %>
+    <% @github_user.organizations.each do |organization| %>
       <div class="border rounded-lg p-4 hover:shadow-lg transition-shadow">
         <div class="flex items-center space-x-4">
           <img src="<%= organization.avatar_url %>" alt="<%= organization.login %> logo" class="w-16 h-16 rounded-full">

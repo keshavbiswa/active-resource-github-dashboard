@@ -47,5 +47,9 @@
       </div>
     <% end %>
   </div>
+
+  <div class="mt-4">
+    <%= render "shared/repositories", repositories: @github_user.repositories %>
+  </div>
 </div>
 

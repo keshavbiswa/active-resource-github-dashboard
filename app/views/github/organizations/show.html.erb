@@ -1,4 +1,58 @@
-<h1> Organization </h1>
-
-<%= @organization.inspect %>
+<div class="max-w-6xl mx-auto px-4 py-8">
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <div class="flex items-center space-x-4 mb-4">
+      <img src="<%= @organization.avatar_url %>" alt="<%= @organization.login %> logo" class="w-20 h-20 rounded-full">
+      <div>
+        <h1 class="text-2xl font-bold"><%= @organization.login %></h1>
+        <a href="<%= @organization.html_url %>" class="text-blue-500 hover:underline">Visit on GitHub</a>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div>
+        <h2 class="text-lg font-semibold">Details</h2>
+        <p><strong>Description:</strong> <%= @organization.description || "No description provided." %></p>
+        <p><strong>Email:</strong> <%= @organization.email || "No email provided." %></p>
+        <p><strong>Location:</strong> <%= @organization.location || "Not specified" %></p>
+        <p><strong>Member since:</strong> <%= @organization.created_at.to_date %></p>
+        <p><strong>Last Updated:</strong> <%= @organization.updated_at.to_date %></p>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold">Statistics</h2>
+        <p><strong>Public Repos:</strong> <%= @organization.public_repos %></p>
+        <p><strong>Private Repos:</strong> <%= @organization.total_private_repos %></p>
+        <p><strong>Collaborators:</strong> <%= @organization.collaborators %></p>
+        <p><strong>Disk Usage:</strong> <%= @organization.disk_usage %> MB</p>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold">Permissions & Features</h2>
+        <p><strong>Default Repository Permission:</strong> <%= @organization.default_repository_permission %></p>
+        <p><strong>Members Can Create Repos:</strong> <%= @organization.members_can_create_repositories ? "Yes" : "No" %></p>
+        <p><strong>Two Factor Authentication:</strong> <%= @organization.two_factor_requirement_enabled ? "Required" : "Not required" %></p>
+        <p><strong>Web Commit Signoff:</strong> <%= @organization.web_commit_signoff_required ? "Required" : "Not required" %></p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8">
+    <h2 class="text-xl font-bold mb-4">Repositories</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <% @repositories.each do |repo| %>
+        <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-semibold">
+              <%= link_to repo.name, repo.html_url, target: "_blank", class: "text-blue-500 hover:underline" %>
+            </h3>
+            <span class="<%= repo.private ? 'bg-red-500' : 'bg-green-500' %> text-white px-2 py-1 rounded-full text-xs">
+              <%= repo.private ? 'Private' : 'Public' %>
+            </span>
+          </div>
+          <p class="text-sm text-gray-600"><%= repo.description || "No description provided." %></p>
+          <div class="text-sm mt-2">
+            <span class="font-bold">Stars:</span> <%= repo.stargazers_count %>
+            <span class="font-bold ml-4">Forks:</span> <%= repo.forks_count %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 

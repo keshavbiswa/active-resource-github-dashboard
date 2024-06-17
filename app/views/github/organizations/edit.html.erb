@@ -1,0 +1,37 @@
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <h1 class="font-bold text-4xl mb-6">Edit <%= @organization.login %> Details </h1>
+
+  <%= form_with(model: @organization, local: true) do |form| %>
+    <div class="px-4 py-8">
+      <div class="bg-white shadow-lg rounded-lg p-6 mx-auto" style="max-width: 800px;">
+        <%= render 'shared/error_messages', object: @organization %>
+        <div class="mb-6 w-full">
+          <label class="block text-sm font-bold mb-2" for="organization_name">Name</label>
+          <%= form.text_field :name, id: "organization_name", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+        <div class="mb-6 w-full">
+          <label class="block text-sm font-bold mb-2" for="organization_description">Description</label>
+          <%= form.text_area :description, id: "organization_description", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 4 %>
+        </div>
+
+        <div class="mb-6 w-full">
+          <label class="block text-sm font-bold mb-2" for="organization_company">Company</label>
+          <%= form.text_field :company, id: "organization_company", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+
+        <div class="mb-6 w-full">
+          <label class="block text-sm font-bold mb-2" for="organization_location">Location</label>
+          <%= form.text_field :location, id: "organization_location", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+
+        <div class="mb-6 w-full">
+          <label class="block text-sm font-bold mb-2" for="organization_email">Email</label>
+          <%= form.text_field :email, id: "organization_email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+        <div class="flex items-center justify-between">
+          <%= form.submit "Update Organization", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

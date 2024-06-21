@@ -8,7 +8,6 @@
             <h1 class="text-2xl font-bold"><%= @organization.login %></h1>
             <a href="<%= @organization.html_url %>" class="text-blue-500 hover:underline">Visit on GitHub</a>
           </div>
-          <%= link_to "Edit #{ @organization.login }", edit_github_organization_path(@organization), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
         </div>
       </div>
     </div>

@@ -4,5 +4,5 @@ ActiveSupport::Notifications.subscribe('request.active_resource') do |name, star
   result = payload[:result]
   duration = (finish - start) * 1000  # Convert duration to milliseconds
 
-  Rails.logger.debug("[ActiveResource] #{method.upcase} #{uri} completed in #{duration.round(2)}ms with result: #{result.code}")
+  Rails.logger.debug("[ActiveResource] #{method.upcase} #{uri} completed in #{duration.round(2)}ms with result: #{result.code}, #{result.body}")
 end
